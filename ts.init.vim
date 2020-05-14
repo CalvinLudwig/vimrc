@@ -1,7 +1,5 @@
 syntax on
 set noerrorbells
-set tabstop=2 softtabstop=2
-set shiftwidth=2
 set expandtab
 set smartindent
 set nu
@@ -21,6 +19,13 @@ set expandtab
 set relativenumber
 set cursorline
 set showmatch
+set noshowmode
+    
+" Tabs
+set expandtab
+set shiftwidth=4
+set softtabstop=4
+set smartindent
 
 let mapleader = " "
 nnoremap <leader>h :wincmd h<CR>
@@ -30,16 +35,19 @@ nnoremap <leader>l :wincmd l<CR>
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'morhetz/gruvbox'
 Plug 'preservim/nerdtree'
+Plug 'ryanoasis/vim-devicons'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'itchyny/lightline.vim'
+Plug 'StanAngeloff/php.vim'
+Plug 'joshdick/onedark.vim'
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
-" GruvBox Theme https://github.com/morhetz/gruvbox
-let g:gruvbox_contrast_dark='hard'
-colorscheme gruvbox
-set background=dark
+" Theme
+set termguicolors
+colorscheme onedark
 
 " NerdTree https://github.com/preservim/nerdtree
 nmap <A-q> :NERDTreeToggle<CR>
@@ -79,3 +87,5 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " Remap for rename current word
 nmap <F2> <Plug>(coc-rename)
+
+let g:lightline = { 'colorscheme': 'onedark' }
